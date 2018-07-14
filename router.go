@@ -3,15 +3,22 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	."Gin/apis"
+	"Gin/middleware/jwt"
 )
 
 func initRouter() *gin.Engine  {
 	router := gin.Default()
-	router.GET("/",IndexApi)
-	router.POST("/person",AddPersonApi)
-	router.GET("/persons",GetPersonsApi)
-	router.GET("/person/:id",GetPersonApi)
-	router.PUT("/person/:id",UpdatePersonApi)
-	router.DELETE("/person/:id",DeletePersonApi)
+	router.GET("/auth",GetAuthApi)
+	apiv1 :=router.Group("/api/v1")
+	apiv1.Use(jwt.JWT())
+	{
+		apiv1.GET("/",IndexApi)
+		apiv1.POST("/person",AddPersonApi)
+		apiv1.GET("/persons",GetPersonsApi)
+		apiv1.GET("/person/:id",GetPersonApi)
+		apiv1.PUT("/person/:id",UpdatePersonApi)
+		apiv1.DELETE("/person/:id",DeletePersonApi)
+	}
+
 	return router
 }
