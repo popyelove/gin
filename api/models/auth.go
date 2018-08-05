@@ -1,6 +1,6 @@
 package models
 import (
-	db "Gin/common/databases"
+	db "Gin/common/databases/mysql"
 )
 type Auth struct {
 	ID int `gorm:"primary_key" json:"id"`

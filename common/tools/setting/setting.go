@@ -54,6 +54,7 @@ type Redis struct {
 	Password    string
 	MaxIdle     int
 	MaxActive   int
+	Db          int
 	IdleTimeout time.Duration
 }
 
@@ -61,7 +62,7 @@ var RedisSetting = &Redis{}
 
 var cfg *ini.File
 
-func Setup() {
+func init() {
 	var err error
 	cfg, err = ini.Load("conf/app.ini")
 	if err != nil {

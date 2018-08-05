@@ -2,7 +2,7 @@ package models
 
 import (
 	"log"
-	db "Gin/common/databases"
+	db "Gin/common/databases/mysql"
 	"github.com/astaxie/beego/logs"
 )
 

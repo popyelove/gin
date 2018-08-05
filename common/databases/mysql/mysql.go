@@ -10,7 +10,6 @@ import (
 var SqlDB *sql.DB
 func init()  {
 	var err error
-	setting.Setup()
 	connstr :=setting.DatabaseSetting.User+":"+setting.DatabaseSetting.Password+"@tcp("+setting.DatabaseSetting.Host+")"+"/test?parseTime=true"
 	fmt.Print(connstr)
 	SqlDB, err = sql.Open("mysql",connstr)

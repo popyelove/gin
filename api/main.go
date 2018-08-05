@@ -1,6 +1,6 @@
 package main
 import (
-	db "Gin/common/databases"
+	db "Gin/common/databases/mysql"
 	"github.com/astaxie/beego/logs"
 	routers "Gin/api/router"
 )
